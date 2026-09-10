@@ -1,0 +1,38 @@
+<!-- https://growtopiawiki.com/w/Year_of_the_Pig_Lucky_Token -->
+
+# Year of the Pig Lucky Token
+
+Legend says these will link your world to the realm of the ancients, where great gods of chance watch over us. Perhaps if you add this to your world, they will bless you with a small piece of their vast fortunes...
+Year of the Pig Lucky Token (Rarity: 50)
+Properties
+This item never drops any seeds.
+This item can't be spliced by mortal man.
+This item has special properties you can adjust with the Wrench.
+Data: Paint PreviewType — Lucky Token – Foreground — Aqua Blue Charcoal Green Purple Red Varnish Yellow
+Render Type: Vertical
+Collision Type: No Collision
+Hardness: **1 Hits** **1 Hits** – Restores after **5s** of inactivity
+Gems Drop: **0 - 13**
+**2d**
+Paint Preview Aqua Blue Charcoal Green Purple Red Varnish Yellow
+During Chinese New Year 2019
+
+|
+Splicing
+
+The tree of this item can be made by mixing the following seeds:
+|  Paper Dividing Wall
+Coin Door  |
+
+ |
+The **Year of the Pig Lucky Token** is an unsplicable non-solid Lucky Token foreground block which was added on Chinese New Year 2019.
+##  Function
+Placing a Year of the Pig Lucky Token in a world would enter the player in a raffle. Placing more would improve their chance of winning the raffle. The items given out from the raffle are:
+  * 100 Draconic Rocket Parasols
+  * 200 Builder's Locks
+  * 500 Vending Machines
+  * 700 gems (×5,000)
+
+##  Gallery
+
+The textures of the Year of the Pig Lucky Token.

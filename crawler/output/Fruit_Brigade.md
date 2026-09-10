@@ -1,0 +1,29 @@
+<!-- https://growtopiawiki.com/w/Fruit_Brigade -->
+
+# Fruit Brigade
+
+Charge to tropical victory with your own Fruit Brigade!
+Properties
+This item never drops any seeds.
+This item can be transmuted.
+Data
+
+Type: Feet – Clothes
+Render Type: Single
+Collision Type: Full Collision
+Hardness: **0 Hits** **0 Hits** – Restores after **0s** of inactivity
+Gems Drop: **N/A**
+**1h**
+Fruit Mixing
+
+**1** may be obtained by blending 3 different kind of fruits in a Super Fruit Mixing Machine.
+The **Fruit Brigade** is an unsplicable feet item which was added as part of Super Pineapple Party 2023 on June 9, 2023.
+##  Function
+Juiced up!
+
+Out of Juice!
+
+When equipped, the **Fruit Brigade** grants the _Punch Damage + Speedy: Fruit Brigade_ mod, which allows the player to break blocks faster and move faster on land.
+##  Gallery
+
+A player wearing the Fruit Brigade

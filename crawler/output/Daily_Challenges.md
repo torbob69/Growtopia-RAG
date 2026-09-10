@@ -1,0 +1,84 @@
+<!-- https://growtopiawiki.com/w/Daily_Challenges -->
+
+# Daily Challenges
+
+**Daily Challenges** is an update which was added on November 18, 2015. Daily Challenges are daily competitions which last for two hours. During this time, players can participate in these competitions and perform certain tasks, the players with the highest number of points are eligible to win prizes. They start every 25 hours with each challenge lasting 2 hours and a 23-hour break in between challenges, allowing all time zones to have a chance to participate.
+A Challenge Board will display information about Daily Challenges such as the most recent daily challenge, the top five players and the number of points they have earned. The Challenge Board is updated every 20 seconds during the Daily Challenge to allow players to see who is leading.
+On October 9, 2019, the Challengers Approach! update was released. It added new challenges and introduced the concept of guilds being able to compete against one another in these challenges - the Guild Daily Challenge. They operate under the same system as the regular Daily Challenges; however, points are measured by the total number of points of all members of the Guild.
+The Challenge Ledger is the guild version of the Challenge Board.
+On February 22, 2024, Daily Challenges received an update which added more rewards for all contributing players. Additionally, a ledger of the Daily Challenge information and the top 5 players is accessible at the top left of the player's screen.
+##  Daily Challenges
+**Doctor's Duel:** Perform surgeries for points, more points for harder surgeries (maladies not included) and points are deducted for each tool used.       +250pts Massive Trauma      +220pts Brain Tumor, deep inside      +200pts Serious Trauma      +180pts Serious Head Injury      +160pts Run Over by a Truck      +140pts Appendicitis      +120pts Damaged Spine, Swallowed a World Lock, Liver Infection      +90pts Kidney Failure      +85pts Heart Attack      +60pts Lung Tumor, Nose Job      +50pts Broken Arm, Broken Leg      +40pts Monkey Flu      +30pts Turtle Flu, Bird Flu      +5pts Patient has an existing condition (Tough Skin, Hemophiliac, Absolutely Filthy, etc.)      -1pts Use a Surgical Tool and/or get a skill fail.
+**Malady Mash:** Perform surgeries on patients with a malady for points, more points for harder maladies, and points are deducted for each tool used.       +230pts Chaos Infection      +200pts Lupus      +180pts Fatty Liver      +160pts Brainworms      +160pts Moldy Guts      +150pts Ecto-Bones      +140pts Broken Heart      +130pts Chicken Feet      +110pts Grumbleteeth      +100pts Gem Cuts      +20pts Torn-Punching Muscle      *2pts If the malady is vicious.      +5pts Patient has an existing condition (Tough Skin, Hemophiliac, Absolutely Filthy, etc.)      -1pts Use a Surgical Tool and/or get a skill fail.
+**Card Clash:** Defeat supervillains for points (villians and masterminds do not count), points are deducted for each card used.       +50pts Defeat a supervillain.      -1pts Use a Superpower Card.
+**War of Wolves:** Complete WOLFWORLDs for points.       +1pts For every second remaining in the WOLFWORLD parkour.
+**Fish Frenzy:** Catch fish for points.       +1pts For every lb of fish caught.
+**Star Strife:** Complete star missions for points (more points for higher sectors).       +20pts Complete a star mission in the Alpha sector.      +60pts Complete a star mission in the Beta sector.      +70pts Complete a star mission in the Delta sector.      +80pts Complete a star mission in the Epsilon sector.      +100pts Complete a star mission in the Nexus sector.      +120pts Complete a star mission in the Heart of the Galaxy and the Desolated Waste sector.      +200pts Defeat Growlactus.
+**Carnie Contest:** Finish a CARNIVAL game (except the Brutal Bounce) for points. Only appears when CARNIVAL appears.       +1pts Win any CARNIVAL game (except Brutal Bounce).
+**Battler's Beatdown:** Win Pet Battles against a Pet Trainer for points.       +1pts Defeat a Pet Trainer.
+**Crystal Crusher:** Harmonize crystals and smash them for points. Crystals placed before the challenge do not count.       +1pts Per Green Crystal, Red Crystal or Blue Crystal used.      +2pts Per White Crystal used.      +5pts Per Black Crystal used.
+**Mutant Kitchen:** Cook Mutant Food for points (more points for higher quality) without assistance.       +160pts Per 100% Mutant Kitchen food, decreases exponentially (i.e. the smaller the percentage, the smaller the decrease in points)
+**Treasure Turmoil:** Solve treasure maps for points.       +1pts Obtain a Map Fragment.      +50pts Solve a Treasure Map.      +100pts Solve a Weekly Map (Map of Loki, Tyr, Odin, Thor, or Frigg depending on the day).      +500pts Solve a Legendary Map.
+**BOO Blast:** Defeat Boss Ghosts for points.       +1pts per hit to Boss Ghost.      +100pts killing a Boss Ghost.
+**Growch Games** : Earn Tree Decorations for points. Only appears during WinterFest and are available from fishing, crimefighting, surgery, completing WOLFWORLD or Geiger Counters.       +1pts Earn a Tree Decoration.
+**Patrick's Prize:** Complete BLARNEY worlds for points. Repeating the same world will not give points again until the player has completed any 6 unique worlds. Only appears during St. Patrick's Week.       +10pts  Complete BLARNEY 1      +11pts  Complete BLARNEY 2      +12pts  Complete BLARNEY 3      +13pts  Complete BLARNEY 4      +14pts  Complete BLARNEY 5      +15pts  Complete BLARNEY 6      +16pts  Complete BLARNEY 7      +17pts  Complete BLARNEY 8      +18pts  Complete BLARNEY 9      +19pts  Complete BLARNEY 10
+**Growganoth's Game:** Drop an item into the maw of GROWGANOTH for points. Only appears during Halloween Week and using a Sigil Of K'Tesh does not count.       +1pts per drop.
+**Chemical Conundrum:** Create Synthetic Chemicals for points without assistance.       +100pts Create a Synthetic Chemical.      -2pts Use a tool.
+**Chef Showdown:** Cook food for points (more points for higher quality) without assistance.       +160pts Per 100% food, decreases exponentially (i.e. the smaller the percentage, the smaller the decrease in points)
+**Radiation Race:** Find Uranium Blocks in GEIGERHILLS for points.       +1pts Find a Uranium Block.
+**Pineapple Panic:** Feed players with a Pineapple Body for points.       +1pts Feed a Pineapple to a Pineapple Body.      +20pts Feed a Super Pineapple to a Pineapple Body.
+**Essence of Love:** Break Golden Booty Chests, Super Golden Booty Chests and Heartstones for points.       +1pts Open a Golden Booty Chest.      +1pts Break a Heartstone.      +5pts Open a Super Golden Booty Chest.      +5pts Give 5 Golden Booty Chests to a Well of Love.      +20pts Harvest a Well of Love.
+**Rayman Rumble:** Collect as many Rayman's cosmetic items as they can, and finding as many items for the UbiWeek Scavenger Hunt for points.       +1pts Open a UbiCrate.      +5pts Finding a UbiWeek Scavenger Hunt item.      +5pts Finding a Rayman's Shoes.      +10pts Finding a Rayman's Nose.      +10pts Finding a Rayman's Hoodie.      +20pts Finding a Rayman's Hair.
+##  Prizes
+The top three players of a Daily Challenge will receive a special prize (each type of challenge has different prizes), the top five will receive a Challenge Board, and the top one will receive a Challenge Crown.
+The top three guilds of a Guild Daily Challenge will receive a different special prize, the top five will receive a Challenge Ledger, and the top one will receive a Guild Challenge Crown. Only members that contribute points are able to obtain prizes.
+### Additional Prizes
+On February 22, 2024, an update was introduced to Daily Challenges, where all contributing players gets an additional reward based on their ranking.
+Ranking: Additional Prize
+| Top 1 to 5 Top 1%   |  Growtoken ×2  Crystal Block Seed ×1 ( Emerald Shard ×1 during Patrick's Prize)
+Gems ×20,000   |
+Top 5%: Growtoken ×2  Gems ×10,000
+Top 10%: Growtoken ×1  Gems ×5,000
+Top 25%: Growtoken ×1  Gems ×2,000
+Top 50%: Growtoken ×1  Gems ×1,000
+Top 100%: Growtoken ×1
+### Special Prizes
+The top three players will receive the special prize. The prize given will depend on the challenge:
+Challenge Name — Regular — Special Ability — Guild — Special AbilityDoctors' Duel — Stethoscope — When equipped, it reduces the player's skill fail while performing surgery by half. — Nano Nurse Bot — When equipped, it grants the _Rebuild Tools: Nano Nurse Bot_ mod to the player, reducing both the likelihood of skill fails and chance to use up a tool while performing surgery.
+Card Clash — Super Logo - Crown — When equipped, this item gives the player +2 health during card battles. — Battle Boots — When equipped, it grants the _Redraw Cards: Battle Boots_ mod to the player, which gives them a chance of not using up a Superpower Card when fighting villains.
+War of Wolves — Wolf Spirit — When equipped, this item grants a chance to obtain better prizes when completing a WOLFWORLD. — Alpha's Shawl — When equipped, it grants the _Woof Time: Alpha's Shawl_ mod to the player, which adds an extra minute to the WOLFWORLD timer (giving a total of 11 minutes).
+Fish Frenzy — Fishing Hat — When equipped, this item grants a 5% chance not to use up the bait while fishing. — Mega-Hooky Vest — When equipped, it grants the _Big Catch: Mega-Hooky Vest_ mod to the player, which increases the chance to receive a larger fish.
+Star Strife — Captain's Log — When equipped, it grants the _Efficient Tools: Captain's Log_ mod to the player, which reduces the chance of using up a Star Tool during a Startopia mission. — Rocket-Powered Warhammer — When equipped, it grants the _Enhanced Digging_ mod to the player, which allows them to break blocks faster, and also gives a special punching effect that causes particles of the block to fly when it is broken.
+Crystal Crusher — Rainbow Crystal Block — It gives a 20% chance of getting back one of the crystals used in creating a harmonised crystal that is sitting on top of the block. — Rainbow Crystal Cloak — When equipped, it grants the _Double Jump_ mod to the player, which allows them to jump a second time mid-air.
+BOO Blast — Ghostking's Command — When equipped, it grants the _Explosion Chance Reduction: Ghostking's Command_ mod to the player, which decreases the chance of a Spirit Storage Unit exploding in any world owned by the player. — Spectral Mantle — When equipped, it grants the _Slowfall: Spectral Mantle_ mod to the player, reducing the player's fall speed just like the Parasol.
+Carnie Contest — Ring Of Savings — When equipped, this item lets the player save 10% when purchasing Golden Tickets (90 rarity per ticket or 33 tickets per World Lock). — Hilarious Honker — When equipped, it grants the _Hilarious Honker_ mod to the player. Upon using the /dance command, confetti will fly out of the player.
+Growch Games — Magical Carrot — When equipped, this item summons a snowman pet and grants the _Cold As Ice_ mod to the player. — Special Winter Wish
+Patrick's Prize — Lucky Pendant — When equipped, it summons a luck dragon pet and grants the _Lucky Dragon_ mod to the player. — Slithering Slippers — When equipped, the _Run: Slithering Slippers_ mod is granted to the player which causes them to auto-run in the direction they are facing.
+Growganoth's Game — Eye Of Growganoth — When equipped, it summons a Growganoth eyeball pet and grants the _Calling Chimera_ mod to the player. — Claw Of Growganoth — When equipped, it summons a Growganoth claw pet and grants the _Growganoth's Claw!_ mod to the player, which replaces the player's punch, causing the pet to shoot out small versions of itself from its mouth.
+Battler's Beatdown — Pet Fox — When equipped, it summons a fox pet. — Chimera's Call — When equipped, it summons a Chimera pet and grants the _Calling Chimera_ mod to the player, which replaces the player's punch with fires being spewed out of the Chimera.
+Chemical Conundrum — Chemist's Goggles — 10% chance not to consume a Chemical when using a Chemsynth Tool. — Slippery Chemical Coat — When equipped, it grants the _Slippery: Slippery Chemical Coat_ mod to the player, which causes them to automatically slide on blocks as if they are moving on Ice.
+Chef Showdown — Master Chef's Oven — It produces edible food at 50% or higher (rather than 60% when another Cooking Oven is used instead). — Superb Chef's Super Spatula — When equipped, it grants the _Flipping: Superb Chef's Super Spatula_ mod to the player, which allows the player to change the direction of placed blocks, in a similar manner to the Enchanted Spatula.
+Radiation Race — Uranium Necklace — When equipped, it grants the _Irradiated_ mod to the player. — Uranium Chair — While a player sits on the chair, they will receive the _Irradiated_ mod.
+Pineapple Panic — Super Pineapple Guardian Charm — It prevents consumables from affecting the player, has a five minute cooldown. — Pineapple Headphones — When equipped, it plays a tropical music while the player is dancing.
+Mutant Kitchen! — Riding 'roach — When equipped, it grants the _Firefly: 'roach_ mod to the player, which allows them to move faster. — Riding Firefly — When equipped, it grants the _Firefly: Speedy_ mod to the player, which allows them to move faster.
+Malady Mash — Dark Doctor's Cloak — When equipped, it increases the player's chance of contracting a vicious malady. — Tainted Cheese — When equipped, it grants the _Malady Increase: Tainted Cheese_ mod to the player, which emits smelly particles from the player and increases the player's chance of contracting a malady.
+Treasure Turmoil — Loot Detector — When equipped, it grants the  _Loot Detector_mod to the player, which increases the player's odds of finding maps and map fragments in a Treasure Blasted world. — Friendship Dragon Claw — When equipped, it grants the  _Hugsy_ mod to the player, which gives a blue and purple punch effect with hearts floating.
+Essence of Love
+  * Pet Mech Robot (top 3)
+  * Golden Heart Crystal (top 5)
+When equipped, it grants the  _Lucky in Love & Punch Range & Punch Damage : Pet Mech Robot_mod to the player, which increases the player's odds of getting a Golden Heart Crystal. — N/A — N/A
+Rayman Rumble — Rayman's Fist (top 1) — When equipped, the Rayman's Fist grants the _Rayman's Fist_ mod, which allows the player to punch three blocks at once and transform into the Rayman when the entire Rayman set is equipped. Additionally, if the player holds their punch for a while, the fist will charge up for double damage. — N/A — N/A
+|  Grand Minimus Crown
+Grand Minimus Robe
+Grand Minimus Magic
+Grand Minimus Mask (top 2–5)   | When equipped, the Grand Minimus Magic grants the _Punch Damage + Punch Range: Grand Minimus Magic_ mod, which allows the player to break blocks faster, punch one tile further, and transform into the Grand Minimus when the entire Grand Minimus set is equipped.   |
+##  Removed Daily Challenges
+Some Daily Challenges have received many player complaints about abuse of the challenge by other players. As such, they have been removed and their special prizes were given new recipes.
+**Bunny Battle:** Collect naturally spawned Magic Eggs for points. Removed due to players exploiting the challenge by hoarding them prior to the event and cycling popular worlds filled with Wooden Platform to maximise chance to spawn.       +1pts Collect a naturally spawned Magic Egg.
+**Zombie Stomp:** Kill players who have been infected with the g-Virus during the Pandemic for points. Removed due to players simply exploiting the Broadcasting system to bring infected players into their world.       +1pts Per zombie killed.
+**Cosmic Crown:** Collect naturally spawned Comet Dust and Antimatter Dust for points. Only appears during the Night Of The Comet event. Removed due to players exploiting the challenge by hoarding them prior to the event and cycling popular worlds filled with Wooden Platform to maximise chance to spawn.       +1pts Collect a naturally spawned Comet Dust.      +20pts Collect a naturally spawned Antimatter Dust.
+### Special Prizes
+Since these Daily Challenges have been removed from the game, their prizes were given new recipes to allow players to still obtain these items.
+Challenge Name — Regular — Special Ability — New RecipeBunny Battle — Brainflower — When equipped, it grants a chance of giving two Easter Eggs from an Egg-Hunting Basket. — 1 can be dropped from combining 10 Easter Egg - Polka Dots, 10 Easter Egg - Rainbow and 10 Easter Egg - Checkered in any Chemical Combiner.
+Zombie Stomp — Zombie Hound — When equipped, it summons a zombie hound pet. — 1 can be purchased from the Sales-Man for 2,640 Zombie Brain.
+Cosmic Crown — Cosmic Cape — Chance to obtain Comet Dust when smashing blocks. — 1 can be purchased from the Store for 200,000 Gems during Night Of The Comet.

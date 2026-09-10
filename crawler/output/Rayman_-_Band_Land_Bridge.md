@@ -1,0 +1,29 @@
+<!-- https://growtopiawiki.com/w/Rayman_-_Band_Land_Bridge -->
+
+# Rayman - Band Land Bridge
+
+Rayman! Turn the world into your very own Band Land with this bridge!
+Properties
+This item never drops any seeds.
+Data: Paint PreviewType — Platform – Foreground — Aqua Blue Charcoal Green Purple Red Varnish Yellow
+Render Type: Horizontal
+Collision Type: Full Collision
+Hardness: **6 Hits** **5 Hits** – Restores after **8s** of inactivity
+Gems Drop: **N/A**
+**1h**
+Paint Preview Aqua Blue Charcoal Green Purple Red Varnish Yellow
+Consumption
+
+Consume a(n)  UbiToken **(x100)**.
+May yield **25** item each.
+
+Breaking
+
+| May drop in sets of **25** from breaking:
+•  UbiCrate  |
+UbiWeek Scavenger Hunt
+
+**10** may be obtained upon completing a row or column on a UbiWeek Scavenger Hunt card.
+The **Rayman - Band Land Bridge** is an unsplicable solid foreground block which was added as part of UbiWeek 2023 Day 1 on February 24, 2023.
+##  Function
+When placed, the Rayman - Band Land Bridge serves a fully aesthetic purpose.

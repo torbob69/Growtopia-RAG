@@ -1,0 +1,52 @@
+<!-- https://growtopiawiki.com/w/Super_Cape_-_Blue -->
+
+# Super Cape - Blue
+
+You're no Heroman, but still, it's pretty cool.
+Super Cape - Blue (Rarity: 88)
+Properties
+A tree of this type can bear surprising fruit!
+This item never drops any seeds.
+This item can be transmuted.
+Data
+
+Type: Back – Clothes
+Render Type: Single
+Collision Type: Full Collision
+Hardness: **0 Hits** **0 Hits** – Restores after **0s** of inactivity
+Gems Drop: **0 - 23**
+**7d 22h 1m 52s**
+Growtopia Store
+
+Purchase the **Superhero Pack** for **10,000 ** in the Growtopia Store.
+"Battle the criminal element in Growtopia with a random superhero outfit including a mask, shirt, boots and a cape that lets you double jump. Each of those items comes in one of four random colors. You also get one of 5 Rare Super Logos, which automatically match the color of any shirt you wear or a Rare Utility Belt, and of course a Phone Booth in which to change into your secret identity!"
+Every purchase has a chance of giving **1** item.
+Splicing
+
+The tree of this item can be made by mixing the following seeds:
+|  Gateway To Adventure
+Rainbow Block  |
+
+The **Super Cape - Blue** is a splicable back item which was added alongside the Superhero Pack on December 12, 2014.
+##  Function
+You can jump in mid-air! It's like flying, but less.
+
+Gravity - it's the law.
+
+When equipped, the **Super Cape - Blue** grants the _Double Jump_ mod, which allows the player to jump a second time in mid-air.
+### Possibilities
+Item: Recipe
+|  Cape of Shadows  |  Dropped from smashing a  Mystery Pinata containing:
+•  Super Cape - Blue
+•  Super Cape - Purple
+•  Super Cape - Green
+•  Super Cape - Red
+•  Super Cape - Gold
+•  Super Cape - Black  |
+|  Glowy Cape  | 1 can be dropped from combining:
+•  Super Cape - Blue (×20)
+•  Glowy Block (×200)
+•  Digital Dirt (×100)
+in any Chemical Combiner.   |
+##  Trivia
+  * The description of this item refers to the Heroman Cape.
