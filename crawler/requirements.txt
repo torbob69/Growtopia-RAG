@@ -1,0 +1,5 @@
+# Crawler service — wiki scrape -> cleaned markdown (main.py)
+# Versions pinned from the previous monolithic root requirements.txt.
+crawl4ai==0.9.3
+psutil==7.2.2
+requests==2.34.2
