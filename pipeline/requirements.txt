@@ -1,0 +1,8 @@
+# Embedding service — encode crawled docs into vectors ("main copy.ipynb")
+# Pinned entries come from the previous monolithic root requirements.txt;
+# sentence-transformers / torch were never in it, so they resolve latest.
+google-genai==2.22.0
+python-dotenv==1.2.3
+sentence-transformers
+torch          # CUDA build is used (SentenceTransformer(..., device="cuda"))
+ipykernel==7.3.0
