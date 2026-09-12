@@ -3,11 +3,6 @@ import sys
 from logging.config import fileConfig
 from pathlib import Path
 
-if sys.platform == "win32":
-    # ponytail: psycopg's async driver can't run on Windows' default
-    # ProactorEventLoop, needs SelectorEventLoop instead.
-    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
-
 from sqlalchemy import pool
 from sqlalchemy.engine import Connection
 from sqlalchemy.ext.asyncio import async_engine_from_config
