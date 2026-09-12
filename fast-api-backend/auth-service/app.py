@@ -1,6 +1,7 @@
 from datetime import timedelta
 
 from fastapi import Depends, FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -11,6 +12,13 @@ from security import ACCESS_TOKEN_EXPIRE_MINUTES, create_access_token, get_curre
 from service import authenticate_user, register_user
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get('/health')
 def health():
