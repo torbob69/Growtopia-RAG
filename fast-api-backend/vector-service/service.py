@@ -82,15 +82,37 @@ LIMIT :top
 """)
 
 
-async def search(db: AsyncSession, query: str, top_k: int, embedder) -> list[SearchHit]:
+# ponytail: 20 candidates reranked, on CPU. Measured on a 7-query eval: pools of 10, 20
+# and 50 all scored 7/7, at 266 / 627 / 1148 ms — so depth buys nothing measurable here and
+# costs latency linearly. 20 over 10 only because the deepest answer in that eval sat at
+# hybrid rank 8, and a pool of 10 leaves no headroom.
+# The ceiling: anything hybrid ranks below 20 can never be recovered, the reranker only
+# reorders what it is handed. Raise this (or move the reranker to GPU, ~3x faster) if a
+# query is known to bury its answer deeper.
+RERANK_POOL = 20
+
+
+async def search(db: AsyncSession, query: str, top_k: int, embedder, reranker) -> list[SearchHit]:
     vector = embedder.encode(query, normalize_embeddings=True)
     rows = (await db.execute(HYBRID, {
         "qvec": "[" + ",".join(map(str, vector)) + "]",
         "query": query,
         "n": CANDIDATES,
         "rrf_k": RRF_K,
-        "top": top_k,
+        "top": max(top_k, RERANK_POOL),
         "df_frac": DF_FRAC,
     })).fetchall()
+    if not rows:
+        return []
+
+    # Second stage. The retriever is a bi-encoder: query and chunk are embedded
+    # separately, so a chunk's vector never sees the query — cheap but shallow, and it
+    # cannot tell two chunks about the same item apart when only one answers the question.
+    # The cross-encoder runs query and chunk through the transformer together for a single
+    # relevance score. Too slow to run over the whole corpus, ideal over a shortlist.
+    scores = reranker.predict([(query, r.content) for r in rows])
+    best = sorted(zip(scores, rows), key=lambda pair: -pair[0])[:top_k]
+
     return [SearchHit(content=r.content, source=r.source, score=r.score,
-                      dense_rank=r.dense_rank, sparse_rank=r.sparse_rank) for r in rows]
+                      dense_rank=r.dense_rank, sparse_rank=r.sparse_rank,
+                      rerank_score=float(ce)) for ce, r in best]
