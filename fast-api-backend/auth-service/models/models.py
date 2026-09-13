@@ -9,6 +9,10 @@ class Role(str, enum.Enum):
     user = "user"
     admin = "admin"
 
+class Theme(str, enum.Enum):
+    light = "light"
+    dark = "dark"
+
 class User(Base):
     __tablename__ = "users"
 
@@ -17,3 +21,4 @@ class User(Base):
     username: Mapped[str] = mapped_column(String, unique=True, nullable=False)
     password_hash: Mapped[str] = mapped_column(String, nullable=False)
     role: Mapped[Role] = mapped_column(Enum(Role, name="role"), default=Role.user, nullable=False)
+    theme: Mapped[Theme] = mapped_column(Enum(Theme, name="theme"), default=Theme.light, server_default=Theme.light.value, nullable=False)

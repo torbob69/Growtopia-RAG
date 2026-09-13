@@ -1,6 +1,6 @@
 from pydantic import BaseModel, ConfigDict, EmailStr
 
-from models.models import Role
+from models.models import Role, Theme
 
 class RegisterRequest(BaseModel):
     gmail: EmailStr
@@ -17,6 +17,7 @@ class UserRead(BaseModel):
     gmail: EmailStr
     username: str
     role: Role
+    theme: Theme
 
 class Token(BaseModel):
     access_token: str

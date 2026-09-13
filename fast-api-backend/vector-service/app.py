@@ -9,7 +9,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from database.connection import get_session
 from models.models import EMBEDDING_DIM
 from schemas.schemas import SearchHit, SearchRequest
-from security import require_admin
+from security import require_admin, require_user
 from service import search, seeding
 
 # Must stay the model the chunks were embedded with, or the query lands in a different
@@ -65,6 +65,6 @@ async def seed(db: AsyncSession = Depends(get_session)):
     await seeding(db)
 
 
-@app.post('/search', response_model=list[SearchHit])
+@app.post('/search', response_model=list[SearchHit], dependencies=[Depends(require_user)])
 async def search_chunks(req: SearchRequest, db: AsyncSession = Depends(get_session)):
     return await search(db, req.query, req.top_k, _model["embedder"], _model["reranker"])
