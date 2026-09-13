@@ -1,5 +1,7 @@
+import os
 from contextlib import asynccontextmanager
 
+import torch
 from fastapi import Depends, FastAPI
 from sentence_transformers import CrossEncoder, SentenceTransformer
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -20,9 +22,12 @@ EMBEDDING_MODEL = "BAAI/bge-base-en-v1.5"
 # eval (7/7 each), roughly 3x faster.
 RERANK_MODEL = "cross-encoder/ms-marco-MiniLM-L-6-v2"
 
-# ponytail: both on CPU. A query embed is ~30ms and a 20-chunk rerank ~630ms, which keeps
-# the GPU free for the pipeline's bulk re-embeds. Reranking dominates /search latency —
-# move it to cuda (~3x faster) before anything else if the endpoint gets hot.
+# Reranking dominates /search latency, so it gets the GPU; the query embed is ~30ms either
+# way and stays on CPU, leaving VRAM to the pipeline's bulk re-embeds. Falling back to CPU
+# rather than failing: a machine without CUDA (or with a CPU-only torch wheel) should still
+# serve, just slower. VECTOR_DEVICE overrides to pin it either way.
+RERANK_DEVICE = os.getenv("VECTOR_DEVICE") or ("cuda" if torch.cuda.is_available() else "cpu")
+
 _model: dict[str, object] = {}
 
 
@@ -35,7 +40,12 @@ async def lifespan(app: FastAPI):
             f"{EMBEDDING_MODEL} emits {dim}-d vectors but chunk.embedding is {EMBEDDING_DIM}-d"
         )
     _model["embedder"] = m
-    _model["reranker"] = CrossEncoder(RERANK_MODEL, device="cpu")
+    ce = CrossEncoder(RERANK_MODEL, device=RERANK_DEVICE)
+    # CUDA builds kernels on the first forward pass, not at load: without this the first
+    # real /search paid ~21s while the rest ran in ~230ms. Spend it at startup instead.
+    ce.predict([("warmup", "warmup")])
+    _model["reranker"] = ce
+    print(f"reranker on {RERANK_DEVICE}", flush=True)
     yield
     _model.clear()
 
@@ -45,7 +55,9 @@ app = FastAPI(lifespan=lifespan)
 
 @app.get('/health')
 def health():
-    return "vector service is ok"
+    # reports the device because "is the reranker actually on the GPU" is otherwise only
+    # answerable by timing a request — it is a ~3x latency difference, silent either way
+    return {"status": "vector service is ok", "rerank_device": RERANK_DEVICE}
 
 
 @app.post('/seed', status_code=201, dependencies=[Depends(require_admin)])
