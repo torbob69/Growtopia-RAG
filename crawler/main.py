@@ -70,29 +70,38 @@ def clean_markdown(md: str) -> str:
     return md.strip() + "\n"
 
 
+# 0 is articles. 3000/3002 are this fork's custom Update:/Guide: namespaces, where every
+# "how does X work" page lives (Guide:Fishing, Guide:Splicing, Guide:Cooking...). Without
+# them the corpus only ever says what an item IS, never how anything works.
+NAMESPACES = (0, 3000, 3002)
+
+
 def get_growtopia_urls(limit: int | None = None) -> List[str]:
-    """All main-namespace article URLs, via the MediaWiki API (no sitemap on this wiki)."""
-    params = {
-        "action": "query", "list": "allpages",
-        "aplimit": "500",        # API max per request
-        "apnamespace": "0",      # articles only, no Category:/Template:/File:
-        "apfilterredir": "nonredirects",
-        "format": "json",
-    }
+    """All article URLs from every content namespace, via the MediaWiki API (no sitemap here)."""
     urls: List[str] = []
-    cont: dict = {}
-    while True:
-        r = requests.get(f"{WIKI}/api.php", params={**params, **cont},
-                         headers={"User-Agent": UA}, timeout=30)
-        r.raise_for_status()
-        data = r.json()
-        for p in data["query"]["allpages"]:
-            urls.append(f"{WIKI}/w/" + quote(p["title"].replace(" ", "_"), safe="/"))
-        if limit and len(urls) >= limit:
-            return urls[:limit]
-        if "continue" not in data:
-            return urls
-        cont = data["continue"]
+    # allpages rejects a multi-value apnamespace, so one pass per namespace
+    for ns in NAMESPACES:
+        params = {
+            "action": "query", "list": "allpages",
+            "aplimit": "500",        # API max per request
+            "apnamespace": str(ns),
+            "apfilterredir": "nonredirects",
+            "format": "json",
+        }
+        cont: dict = {}
+        while True:
+            r = requests.get(f"{WIKI}/api.php", params={**params, **cont},
+                             headers={"User-Agent": UA}, timeout=30)
+            r.raise_for_status()
+            data = r.json()
+            for p in data["query"]["allpages"]:
+                urls.append(f"{WIKI}/w/" + quote(p["title"].replace(" ", "_"), safe="/"))
+            if limit and len(urls) >= limit:
+                return urls[:limit]
+            if "continue" not in data:
+                break
+            cont = data["continue"]
+    return urls
 
 
 def _outfile(url: str) -> str:
