@@ -23,6 +23,9 @@ MIN_CONTENT_CHARS = 400  # after cleaning, incl. the url comment + "# Title" hea
 
 def clean_markdown(md: str) -> str:
     """Strip wiki chrome so chunks/embeddings aren't drowned in link URLs and infobox noise."""
+    # in-body category navbox (e.g. "Navigation — Fishing"): a cross-link list of
+    # every other item in the category, not article content
+    md = re.sub(r'\nNavigation\s*—.*$', "", md, flags=re.S)
     # wiki footer
     md = re.sub(r'\n*Retrieved from "\[.*$', "", md, flags=re.S)
     # [text](url "title") -> text ; [](url) -> nothing. handles one level of \(...\) in the url.
@@ -189,9 +192,12 @@ def _selftest():
         'See [Blueberry](https://growtopiawiki.com/w/Blueberry "Blueberry") and '
         '[Time-Tossed!](https://growtopiawiki.com/w/Time-Tossed!_\\(update\\) "Time-Tossed! \\(update\\)").\n'
         '  * [](https://growtopiawiki.com/w/File:X.png "a caption")\n\n\n\n'
+        'Navigation — Farming\n\n**Seeds**: Apple · Blueberry · Coconut\n\n'
         'Retrieved from "[https://growtopiawiki.com/index.php?title=Apple&oldid=1](https://growtopiawiki.com/x)"\n'
     )
     out = clean_markdown(raw)
+    assert "Navigation" not in out, "navbox not stripped"
+    assert "Coconut" not in out, "navbox content not stripped"
     assert "https://growtopiawiki.com/w/Blueberry" not in out, "link url not stripped"
     assert "See Blueberry and Time-Tossed!." in out, out
     assert "Retrieved from" not in out, "footer not stripped"
