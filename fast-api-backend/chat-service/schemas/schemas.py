@@ -16,6 +16,10 @@ class ChatResponse(BaseModel):
     answer: str
     # wiki pages the answer was grounded in, so the caller can check it
     sources: list[str]
+    # what was actually sent to /search after follow-up references were resolved. Exposed
+    # for the same reason /search returns dense_rank and sparse_rank: a rewrite that quietly
+    # drifts shows up only as "answers got worse", which nobody traces back on their own.
+    search_query: str
 
 
 class SessionRead(BaseModel):

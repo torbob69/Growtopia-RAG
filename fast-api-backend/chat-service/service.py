@@ -1,5 +1,6 @@
 import os
 import pathlib
+import re
 
 import dotenv
 import httpx
@@ -43,6 +44,31 @@ CONTEXT:
 """
 
 NO_CONTEXT_ANSWER = "I couldn't find anything in the Growtopia wiki about that."
+
+# The model and the retriever want opposite things from a conversation. The model wants all
+# of it, and already has it through previous_interaction_id. The retriever wants one short
+# specific question: dense collapses whatever it is given into a single vector, and sparse
+# ANDs the rare lexemes it finds, so a transcript zeroes sparse out entirely (no chunk
+# contains every item name mentioned so far) and drags the dense vector toward the centroid
+# of the whole conversation. This call is what bridges them — history in, one question out.
+REWRITE_PROMPT = """Rewrite the user's message as a single standalone search query for a
+Growtopia wiki search engine.
+
+- Resolve references using the conversation so far: "it", "that one", "the second one"
+  become the explicit item or mechanic name.
+- If the message already stands alone, return it unchanged.
+- Drop conversational filler. Keep proper nouns spelled exactly as they appear.
+- Output only the query itself — no explanation, no quotes, no preamble.
+"""
+REWRITE_TIMEOUT = 15.0
+
+# Referential words are what make a question unanswerable on its own. A query without any of
+# them is already standalone, and rewriting it spends a second API call to get the same
+# string back — which on a tight quota is the call that 429s the turn. Short queries get
+# rewritten regardless: "and the recipe?" names nothing but is plainly a follow-up.
+REFERENTIAL = {"it", "its", "that", "this", "they", "them", "those", "these",
+               "he", "him", "she", "her", "one", "ones", "there", "same"}
+STANDALONE_WORDS = 4
 
 http = httpx.AsyncClient()
 llm = genai.Client(api_key=GOOGLE_API_KEY)
@@ -103,6 +129,12 @@ async def _generate(query: str, context: str, previous_id: str | None) -> tuple[
             **chaining,
         )
     except Exception as e:
+        # An upstream 429 is a quota condition the caller can retry, not a gateway fault —
+        # reporting it as 502 sends whoever hits it off debugging the wrong service. Read it
+        # off status_code rather than importing the SDK's RateLimitError, which lives under
+        # google.genai._gaos and is free to move.
+        if getattr(e, "status_code", None) == 429:
+            raise HTTPException(status.HTTP_429_TOO_MANY_REQUESTS, "llm quota exhausted")
         raise HTTPException(status.HTTP_502_BAD_GATEWAY, f"llm call failed: {type(e).__name__}")
 
     # output_text is optional in the response model — a filtered or interrupted interaction
@@ -111,6 +143,50 @@ async def _generate(query: str, context: str, previous_id: str | None) -> tuple[
     if not result.output_text:
         raise HTTPException(status.HTTP_502_BAD_GATEWAY, "llm returned no text")
     return result.output_text, result.id
+
+
+def is_standalone(query: str) -> bool:
+    """Whether a query names its own subject, and so needs no history to be searchable."""
+    words = re.findall(r"[a-z]+", query.lower())
+    return len(words) > STANDALONE_WORDS and not REFERENTIAL.intersection(words)
+
+
+async def _search_query(query: str, previous) -> str:
+    """What to send to /search — the standalone form of what the user just asked."""
+    if previous is None:
+        return query                                  # first turn, nothing to resolve
+
+    if is_standalone(query):
+        return query                                  # already searchable, don't pay to confirm
+
+    if previous.provider_interaction_id is None:
+        # the previous turn never reached the model (retrieval came back empty), so there is
+        # no thread to chain the rewrite onto. Prepending the last question is the fallback:
+        # it restores the subject for a follow-up, and costs a few stale words otherwise.
+        return f"{previous.query} {query}"[:1000]
+
+    # store=True is not optional here — the API rejects a chained call without it
+    # ("store must be true when previous_interaction_id is set"). So this rewrite becomes a
+    # second child of the previous turn rather than vanishing. That fork is deliberate: only
+    # the answer's id is persisted, so the next turn continues the thread the user can see
+    # and the rewrite branches stay off to the side.
+    try:
+        result = await llm.aio.interactions.create(
+            model=LLM,
+            input=query,
+            system_instruction=REWRITE_PROMPT,
+            previous_interaction_id=previous.provider_interaction_id,
+            store=True,
+            timeout=REWRITE_TIMEOUT,
+        )
+        rewritten = (result.output_text or "").strip()
+    except Exception as e:
+        # never fail a turn over the rewrite — but say so, because the symptom otherwise is
+        # just "follow-ups got worse", which is invisible until someone goes looking
+        print(f"query rewrite failed ({type(e).__name__}), using the raw query", flush=True)
+        return query
+
+    return rewritten[:1000] or query
 
 
 async def answer(db: AsyncSession, query: str, session_id: int | None,
@@ -130,15 +206,10 @@ async def answer(db: AsyncSession, query: str, session_id: int | None,
         .limit(1)
     )).first()
 
-    # previous_interaction_id gives the MODEL the conversation, but retrieval still sees one
+    # previous_interaction_id gives the MODEL the conversation, but retrieval sees one
     # question in isolation — "what does it do when i wear it?" has no antecedent for "it"
-    # and pulled back Clothes Shirt / Clothes Hand / Adat Shoulder Wear, measured. Prepending
-    # the previous question restores the subject before the query is embedded.
-    # ponytail: concatenation, not a rewrite model. It fixes follow-ups about the same thing,
-    # which is most of them; after a topic switch it costs a couple of stale words in the
-    # embedding. Swap in an LLM rewrite call if that stops being good enough.
-    # Truncated because /search rejects anything over 1000 chars, and two long turns exceed it.
-    search_query = f"{previous.query} {query}"[:1000] if previous else query
+    # and pulled back Clothes Shirt / Clothes Hand / Adat Shoulder Wear, measured.
+    search_query = await _search_query(query, previous)
 
     hits = await _retrieve(search_query, token)
     sources = [_label(h['source']) for h in hits]
@@ -163,7 +234,8 @@ async def answer(db: AsyncSession, query: str, session_id: int | None,
     # Built from the locals, never from the ORM objects: commit expires every instance it
     # touched, so reading an attribute back here would be a lazy refresh — synchronous IO
     # in an async context, which asyncpg raises MissingGreenlet on rather than performs.
-    return ChatResponse(session_id=session_id, answer=text, sources=sources)
+    return ChatResponse(session_id=session_id, answer=text, sources=sources,
+                        search_query=search_query)
 
 
 async def list_sessions(db: AsyncSession, user_id: int) -> list[ChatSession]:
